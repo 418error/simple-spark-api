@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+//Creates a single fat/uber Jar with all dependencies
+jar {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
+    manifest {
+        attributes 'Implementation-Title': 'simple-spark-api',
+                   'Implementation-Version': version,
+                   'Main-Class': 'com.channie.example.spark.Service'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+  compile 'com.sparkjava:spark-core:2.1'
+}
+
+task runJar(dependsOn:jar) << {
+  javaexec { main="-jar"; args jar.archivePath }
+}
