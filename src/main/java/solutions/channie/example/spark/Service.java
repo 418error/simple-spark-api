@@ -1,4 +1,4 @@
-package com.channie.example.spark;
+package solutions.channie.example.spark;
 import static spark.Spark.get;
 
 public class Service{
