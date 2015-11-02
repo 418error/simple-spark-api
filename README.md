@@ -27,6 +27,9 @@ To run on default port 4567
 ```
 gradle runJar
 ```
+Open a browser of your choice and navigate to
+
+<http://localhost:4567/hello>
 
 ## Using docker????
 I've included a Docker file here I use to run this particular app... rather than copy and past it from my other repo have a look there for how to run it... [Channie's docker-files - env-openjdk-gradle][channie-docker]
@@ -43,7 +46,7 @@ docker run -dp 10023:4567 yourname/env-simple-spark-api
 ```
 Open a browser of your choice and navigate to
 
-http://your-docker-machine-ip:10023/hello
+<http://your-docker-machine-ip:10023/hello>
 
 
 [channie-docker]: https://github.com/lendmeapound/docker-files/tree/master/env-openjdk-gradle
