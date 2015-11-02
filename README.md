@@ -25,5 +25,22 @@ gradle build
 ## Running (as executable)
 To run on default port 4567
 ```
-java -jar build/libs/simple-spark-api-1.0.jar
+gradle runJar
 ```
+
+## Using docker????
+I've included a Docker file here I use to run this particular app... rather than copy and past it from my other repo have a look there for how to run it :)
+
+Although if you have experience with docker then the following should be enough...
+
+Build the image...
+```
+docker build -t yourname/env-simple-spark-api .
+```
+Run the image in the container...
+```
+docker run -dp 10023:4567 yourname/env-simple-spark-api
+```
+Open a browser of your choice and navigate to
+
+http://your-docker-machine-ip:10023/hello
